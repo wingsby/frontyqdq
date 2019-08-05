@@ -1,0 +1,147 @@
+<!DOCTYPE HTML>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>一骑学院</title>
+    <meta name="viewport" content="width=device-width,initial-scale=1, minimum-scale=1, maximum-scale=1, user-scalable=no" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="full-screen" content="true" />
+    <meta name="screen-orientation" content="portrait" />
+    <meta name="x5-fullscreen" content="true" />
+    <meta name="360-fullscreen" content="true" />
+    <meta http-equiv="Expires" content="0">
+    <meta http-equiv="Pragma" content="no-cache">
+    <meta http-equiv="Cache-control" content="no-cache">
+    <meta http-equiv="Cache" content="no-cache">
+
+    <style>
+        html, body { -ms-touch-action: none; padding: 0; border: 0; margin: 0; height: 100%; font-family: "Microsoft Yahei", "SimSun"; overflow: hidden; }
+        body { background: url('./resource/ui/login/bg_di.png') repeat; }
+        .bg-fix { display: block; position: absolute; z-index: 600; }
+        .bg-fix a { display: block; width: 100%; position: relative; top: 72.5%; text-align: center; color: white; font-size: 1.625rem; font-weight: bold; text-shadow: -1px -1px 1px #622f00, 1px -1px 1px #622f00, -1px 1px 1px #622f00, 1px 1px 1px #622f00; z-index: 601; }
+        .bg-fix img { position: absolute; left: 0; top: 0; width: 100%; height: 100%; }
+        .hidden { display: none; }
+    </style>
+
+</head>
+
+<body>
+    <div id="v" data=""></div>
+    <div id="ver" data=""></div>
+    <div id="div-load" class="bg-fix">
+        <img src="./resource/ui/login/BG_LODING.jpg" alt="">
+        <!-- <a id="lb-load"></a> -->
+    </div>
+    <div style="margin: auto;width: 100%;height: 100%;" class="egret-player" data-entry-class="Main" data-orientation="auto" data-scale-mode="showAll" data-frame-rate="30" data-content-width="480" data-content-height="800" data-show-paint-rect="false" data-multi-fingered="2"
+        data-show-fps="false" data-show-log="false" data-show-fps-style="x:0,y:0,size:12,textColor:0xffffff,bgAlpha:0.9">
+    </div>
+
+    <script>
+        var loader = {
+            load_t: 0,
+            init: function(timeline) {
+                this.load_t = timeline;
+                this.dLoad = document.getElementById("div-load");
+                this.lLoad = document.getElementById("lb-load");
+            },
+            resize: function() {
+                var dLoad = this.dLoad;
+                var lLoad = this.lLoad;
+                if (!dLoad || !lLoad) {
+                    return;
+                }
+
+                var egret_player = document.getElementsByClassName("egret-player");
+                if (!egret_player || egret_player.length <= 0) {
+                    return;
+                }
+                var w_ps = egret_player[0].getAttribute("data-content-width");
+                var h_ps = egret_player[0].getAttribute("data-content-height");
+
+                var ratio = w_ps / h_ps;
+                var w = document.body.clientWidth;
+                var h = document.body.clientHeight;
+                if (w / h > ratio) {
+                    dLoad.style.height = h + "px";
+                    dLoad.style.width = h * ratio + "px";
+                    dLoad.style.top = "0px";
+                    dLoad.style.left = ((w - h * ratio) / 2) + "px";
+                    lLoad.style.transform = "scale(" + (h / h_ps) + ")";
+                } else {
+                    dLoad.style.height = w / ratio + "px";
+                    dLoad.style.width = w + "px";
+                    dLoad.style.top = ((h - w / ratio) / 2) + "px";
+                    dLoad.style.left = "0px";
+                    lLoad.style.transform = "scale(" + (w / w_ps) + ")";
+                }
+            },
+            updateText: function() {
+                if (this.dLoad.className.indexOf('hidden') != -1) {
+                    return;
+                }
+                var dot_acc = 3;
+                var duration = 800;
+                var times = (new Date().getTime() - this.load_t) % (duration * dot_acc);
+                var postfix = "";
+                for (var i = 0; i < Math.floor(times / duration) + 1; i++) {
+                    postfix += "."
+				}
+				
+				var lang = navigator.language || navigator.userLanguage;
+				this.lLoad.innerHTML = ((lang.substr(0, 3) == "zh-") ? "加载中" : "Loading") + postfix;
+
+                var thisObj = this;
+                setTimeout(function() {
+                    thisObj.updateText();
+                }, duration);
+            }
+        };
+
+        window.onresize = function() {
+            loader.resize();
+        }
+
+        loader.init(new Date().getTime());
+        loader.resize();
+        loader.updateText();
+    </script>
+
+    <!--modules_files_start-->
+	<script egret="lib" src="libs/modules/egret/egret.js"></script>
+	<script egret="lib" src="libs/modules/egret/egret.web.js"></script>
+	<script egret="lib" src="libs/modules/game/game.js"></script>
+	<script egret="lib" src="libs/modules/socket/socket.js"></script>
+	<script egret="lib" src="libs/modules/tween/tween.js"></script>
+	<script egret="lib" src="libs/modules/res/res.js"></script>
+	<script egret="lib" src="libs/modules/eui/eui.js"></script>
+	<script egret="lib" src="libs/modules/dragonBones/dragonBones.js"></script>
+	<script egret="lib" src="libs/jszip/jszip.js"></script>
+	<script egret="lib" src="libs/weixinapi/weixinapi.js"></script>
+	<script egret="lib" src="libs/platformSDK/platformSDK.js"></script>
+	<script egret="lib" src="libs/nest/nest.js"></script>
+	<script egret="lib" src="libs/p_plugin/p_plugin.js"></script>
+	<script egret="lib" src="libs/injection/injection.js"></script>
+	<script egret="lib" src="libs/payView/payView.js"></script>
+	<script egret="lib" src="promise/bin/promise.js"></script>
+	<!--modules_files_end-->
+
+    
+
+    <!--game_files_start-->
+	<!--game_files_end-->
+
+    <script>
+        var audio_t = 0;
+        if (window.OPEN_DATA && window.OPEN_DATA.platform == 1 && window.OPEN_DATA.pf == "wanba_ts") {
+            audio_t = 2;
+        }
+
+        egret.runEgret({
+            renderMode: "webgl",
+            audioType: audio_t
+        });
+    </script>
+</body>
+
+</html>

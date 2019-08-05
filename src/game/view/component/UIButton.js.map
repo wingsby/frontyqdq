@@ -1,0 +1,1 @@
+{"version":3,"file":"UIButton.js","sourceRoot":"","sources":["../../../../src/game/view/component/UIButton.ts"],"names":[],"mappings":";;;;;;;;AAAA,IAAU,EAAE,CAaX;AAbD,WAAU,EAAE;IAER;;OAEG;IACH;QAAuC,4BAAS;QAG5C;mBACI,iBAAO;QACX,CAAC;QAEL,eAAC;IAAD,CAAC,AAPD,CAAuC,GAAG,CAAC,KAAK,GAO/C;IAPqB,WAAQ,WAO7B,CAAA;IAPqB,UAAA,QAAQ,0BAO7B,CAAA;AACL,CAAC,EAbS,EAAE,KAAF,EAAE,QAaX"}

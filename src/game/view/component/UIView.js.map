@@ -1,0 +1,1 @@
+{"version":3,"file":"UIView.js","sourceRoot":"","sources":["../../../../src/game/view/component/UIView.ts"],"names":[],"mappings":";;;;;;;;AAAA,IAAU,EAAE,CAaX;AAbD,WAAU,EAAE;IAER;;OAEG;IACH;QAAqC,0BAAa;QAE9C;mBACI,iBAAO;QACX,CAAC;QAGL,aAAC;IAAD,CAAC,AAPD,CAAqC,GAAG,CAAC,SAAS,GAOjD;IAPqB,SAAM,SAO3B,CAAA;IAPqB,UAAA,MAAM,wBAO3B,CAAA;AACL,CAAC,EAbS,EAAE,KAAF,EAAE,QAaX"}

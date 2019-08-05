@@ -1,0 +1,1 @@
+{"version":3,"file":"NetManager.js","sourceRoot":"","sources":["../../../src/game/common/NetManager.ts"],"names":[],"mappings":";;;AAAA;;GAEG;AACH;IACI;;OAEG;IACH;IAEA,CAAC;IAED;;OAEG;IACI,kCAAa,GAApB,UAAqB,EAAU,EAAE,IAAY;QACzC,UAAU,CAAC,MAAM,GAAG,EAAE,CAAC;QACvB,UAAU,CAAC,QAAQ,GAAG,IAAI,CAAC;IAC/B,CAAC;IAEL,iBAAC;AAAD,CAAC,AAhBD,IAgBC;AAhBK,UAAA,UAAU,yBAgBf,CAAA"}
